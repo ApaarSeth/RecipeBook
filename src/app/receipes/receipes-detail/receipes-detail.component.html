@@ -1,0 +1,38 @@
+
+  <div class="row">
+    <div class="col-md-12">
+      <img src="{{receipeDetail.imagePath}}" class="foodImage img-fluid rounded" alt="">
+    </div>    
+      </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h1>{{receipeDetail.name}}</h1>
+          </div>
+    </div>
+   <div class="row">
+     <div class="col-md-12">
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown button
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" (click)="addIngredients()">To Shopping List</a>
+              <a class="dropdown-item" [routerLink]="['edit']">Edit Receipe </a>
+              <a class="dropdown-item" (click)="onDelete()" [routerLink]="['../']">Delete Receipe</a>
+            </div>
+          </div>
+     </div>
+   </div>
+   <div class="row">
+      <div class="col-md-12">
+        {{receipeDetail.description}}
+        </div>
+   </div>
+   <div class="row">
+      <div class="col-md-12">
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let ingredient of receipeDetail.ingredients">{{ingredient.name}}-{{ingredient.amount}}</li>
+        </ul>
+        </div>
+   </div>
+

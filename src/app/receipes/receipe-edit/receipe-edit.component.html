@@ -1,0 +1,43 @@
+<div class="container">
+  <form [formGroup]='receipeEditForm' (ngSubmit)="onSubmit()">
+    <button type="submit" class="btn btn-success mr-2" >Submit</button>
+    <button type="button" class="btn btn-danger"[routerLink]="['../']">Cancel</button>
+    <div class="form-group">
+      <label for="receipeName">Receipe Name </label>
+      <input type="text" class="form-control" id="receipeName" formControlName='name'>
+    </div>
+    <div class="form-group">
+      <label for="receipeDescription">Receipe Description </label>
+      <textarea class="form-control" id="receipeDescription" rows="7" cols="2" formControlName='description'>
+    </textarea>
+    </div>
+    <div class="form-group">
+      <label for="imagePath">Receipe Image </label>
+      <input type="text" class="form-control" id="imagePath" formControlName='imagePath' #imagePath>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <img [src]="imagePath.value" class="img-thumbnail img-fluid rounded" id="imagePath">
+      </div>
+      </div>
+
+    <div class="form-row">
+      <div class="col-md-12" formArrayName='ingredients'> 
+        <div class="form-row" *ngFor="let ingredient of getControl();let i=index;" [formGroupName]="i">
+          <div class="col-md-8 mb-2">
+            <input class='col-md-8' type="text" class="form-control" formControlName='name'>
+          </div>
+          <div class="col-md-2">
+            <input class='col-md-2' type="number" class="form-control" formControlName='amount'>
+          </div>
+          <div class="col-md-2">
+            <button type=button class='col-md-2' class="btn btn-danger" (click)="onDeleteIngredient(i)">X</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <button type="button" class="btn btn-success" (click)="onAddIngredient()">New</button>
+    </div>
+  </form>
+</div>

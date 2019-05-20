@@ -1,0 +1,16 @@
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="list-group">
+      <a href="#" class="list-group-item " [routerLink]='["/receipes",index]' >
+        <div class="d-flex justify-content-between ">
+          <div class="d-flex flex-column">
+            <h5>{{receipe.name}}</h5>
+            <p>{{receipe.description}}</p>
+          </div>
+          <img src="{{receipe.imagePath}}" class="img-fluid img-thumbnail" style="max-height: 60px;" alt="{{receipe.name}}">
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

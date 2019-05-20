@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-md-12">
+        <button type="button" class="btn btn-success" [routerLink]="['./new']" >New Receipe</button>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-md-12" [class.highlight]="i==recipeSelected">
+        <app-receipes-item  
+        *ngFor="let receipe of receipes;let i=index" 
+        [receipe]="receipe" [index]="i" (click)="selectedReceipe(i)" 
+        ></app-receipes-item>
+    </div>
